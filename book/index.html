@@ -9,18 +9,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
 </head>
 <body>
     <main>
         <div class="ink">
             <img src="noun-paint-splatter-3910653.svg" class="watercolour">
         </div>
-    <section>
-        <div class="book">
-            <div class="pg pg1"><img src="Magical+Women-2.png" class="logo"></div>
-            <div class="pg pg2"><img src="Rainbow+Flag+Equality+Advocacy+and+Cause+T-Shirt.jpg" class="logo2"></div>
-        </div>
-    </section>
+        <section>
+            <div class="book">
+                <div class="pg pg1"><img src="Magical+Women-2.png" class="logo"></div>
+                <div class="pg pg2"><img src="Rainbow+Flag+Equality+Advocacy+and+Cause+T-Shirt.jpg" class="logo2"></div>
+            </div>
+        </section>
     </main>
 </body>
 <script>
@@ -29,27 +30,86 @@
         document.querySelector('.book').classList.toggle('open');
     });
     let ink = document.querySelector('.watercolour');
-    document.querySelector('main').addEventListener('mousemove',function(e){
-        count++;
-        if(count%2 ==0 && e.buttons){
-            let newInk = ink.cloneNode(true);
-            newInk.classList.add('painted');
-            newInk.style.display ='block';
-            newInk.style.position= 'absolute';
-            newInk.style.transformOrigin = 'center';
-            newInk.style.transform = 'rotate('-27.5+Math.random()*360+'deg)';
-            newInk.style.transform= 'translate(-50%, -50%)'
-            newInk.style.top=`${e.clientY}px`;
-            newInk.style.left=`${e.clientX}px`;
-            let rand = 15 + Math.random()*10;
-            newInk.setAttribute('width', `${rand}px`);
-            newInk.setAttribute('height', `${rand}px`);
-            document.querySelector('main').prepend(newInk);
-            window.setTimeout(function(){
-                newInk.style.opacity=0;
-            }, 5000);
+    // document.querySelector('main').addEventListener('mousemove',function(e){
+    //     count++;
+    //     if(count%2 ==0 && e.buttons){
+    //         let newInk = ink.cloneNode(true);
+    //         newInk.classList.add('painted');
+    //         newInk.style.display ='block';
+    //         newInk.style.position= 'absolute';
+    //         newInk.style.transformOrigin = 'center';
+    //         newInk.style.transform = 'rotate('-27.5+Math.random()*360+'deg)';
+    //         newInk.style.transform= 'translate(-50%, -50%)'
+    //         newInk.style.top=`${e.clientY}px`;
+    //         newInk.style.left=`${e.clientX}px`;
+    //         let rand = 15 + Math.random()*10;
+    //         newInk.setAttribute('width', `${rand}px`);
+    //         newInk.setAttribute('height', `${rand}px`);
+    //         document.querySelector('main').prepend(newInk);
+    //         window.setTimeout(function(){
+    //             newInk.style.opacity=0;
+    //         }, 5000);
+    //     }
+    // })
+
+        let SPLASH, SPLASH2;
+
+    function setup(){
+        createCanvas(window.innerWidth, window.innerHeight);
+        document.querySelector('#defaultCanvas0').style.position = 'absolute';
+        document.querySelector('#defaultCanvas0').style.top = '0px';
+        document.querySelector('#defaultCanvas0').style.left = '0px';
+        document.querySelector('#defaultCanvas0').style.zIndex = '-1';
+        document.querySelector('#defaultCanvas0').style.pointerEvents = 'none';
+        beginShape(SPLASH);
+                vertex(676.86,142.53);
+                bezierVertex(766.481,85.52600000000001,884.79,142.502656,896.1,248.11);
+                bezierVertex(902.018,303.372,939.3770000000001,350.22,991.936,368.28000000000003);
+                bezierVertex(1092.386,402.807,1121.596,530.83,1046.084,605.52);
+                bezierVertex(1006.5680000000001,644.602,993.2360000000001,703.016,1011.8810000000001,755.37);
+                bezierVertex(1047.5140000000001,855.4300000000001,965.6390000000001,958.09,860.1610000000001,945.62);
+                bezierVertex(804.97,939.0927,750.981,965.093,721.681,1012.311);
+                bezierVertex(665.6690000000001,1102.553,534.3610000000001,1102.553,478.341,1012.311);
+                bezierVertex(449.032,965.092,395.048,939.0920000000001,339.861,945.62);
+                bezierVertex(234.38099999999997,958.093,152.511,855.429,188.141,755.37);
+                bezierVertex(206.786,703.015,193.4535,644.6,153.938,605.52);
+                bezierVertex(78.42199999999998,530.832,107.64099999999999,402.80999999999995,208.08599999999998,368.28);
+                bezierVertex(260.645,350.214,298.004,303.366,303.92199999999997,248.10999999999996);
+                bezierVertex(315.234,142.49999999999994,433.542,85.52999999999994,523.162,142.52999999999997);
+                bezierVertex(570.049,172.35799999999998,629.962,172.35799999999998,676.8620000000001,142.52999999999997);
+            endShape();
+            beginShape(SPLASH2);
+                vertex(676.86,142.53);
+                bezierVertex(766.481,85.52600000000001,884.79,142.502656,896.1,248.11);
+                bezierVertex(902.018,303.372,939.3770000000001,350.22,991.936,368.28000000000003);
+                bezierVertex(1092.386,402.807,1121.596,530.83,1046.084,605.52);
+                bezierVertex(1006.5680000000001,644.602,993.2360000000001,703.016,1011.8810000000001,755.37);
+                bezierVertex(1047.5140000000001,855.4300000000001,965.6390000000001,958.09,860.1610000000001,945.62);
+                bezierVertex(804.97,939.0927,750.981,965.093,721.681,1012.311);
+                bezierVertex(665.6690000000001,1102.553,534.3610000000001,1102.553,478.341,1012.311);
+                bezierVertex(449.032,965.092,395.048,939.0920000000001,339.861,945.62);
+                bezierVertex(234.38099999999997,958.093,152.511,855.429,188.141,755.37);
+                bezierVertex(206.786,703.015,193.4535,644.6,153.938,605.52);
+                bezierVertex(78.42199999999998,530.832,107.64099999999999,402.80999999999995,208.08599999999998,368.28);
+                bezierVertex(260.645,350.214,298.004,303.366,303.92199999999997,248.10999999999996);
+                bezierVertex(315.234,142.49999999999994,433.542,85.52999999999994,523.162,142.52999999999997);
+                bezierVertex(570.049,172.35799999999998,629.962,172.35799999999998,676.8620000000001,142.52999999999997);
+            endShape();
+    }
+
+    const paintPath = 'm676.86 142.53c89.621-57.004 207.93-0.027344 219.24 105.58 5.918 55.262 43.277 102.11 95.836 120.17 100.45 34.527 129.66 162.55 54.148 237.24-39.516 39.082-52.848 97.496-34.203 149.85 35.633 100.06-46.242 202.72-151.72 190.25-55.191-6.5273-109.18 19.473-138.48 66.691-56.012 90.242-187.32 90.242-243.34 0-29.309-47.219-83.293-73.219-138.48-66.691-105.48 12.473-187.35-90.191-151.72-190.25 18.645-52.355 5.3125-110.77-34.203-149.85-75.516-74.688-46.297-202.71 54.148-237.24 52.559-18.066 89.918-64.914 95.836-120.17 11.312-105.61 129.62-162.58 219.24-105.58 46.887 29.828 106.8 29.828 153.7 0z';
+
+    function draw(){
+        background(255,255,255,1);
+        stroke(0,0,0,0);
+        fill(10,10,10,100);
+        if(mouseIsPressed){
+            circle(mouseX, mouseY, Math.random()*100);
+           
+
         }
-       
-    })
+        
+
+    }
 </script>
 </html>
