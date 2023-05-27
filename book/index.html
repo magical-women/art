@@ -11,11 +11,42 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <main>
+        <div class="ink">
+            <img src="noun-watercolor-1324804.svg" class="watercolour">
+        </div>
     <section>
         <div class="book">
             <div class="pg pg1"><img src="Magical+Women-2.png" class="logo"></div>
             <div class="pg pg2"><img src="Rainbow+Flag+Equality+Advocacy+and+Cause+T-Shirt.jpg" class="logo2"></div>
         </div>
     </section>
+    </main>
 </body>
+<script>
+    let count = 0;
+    document.querySelector('.book').addEventListener('click', function(){
+        document.querySelector('.book').classList.toggle('open');
+    });
+    let ink = document.querySelector('.watercolour');
+    document.querySelector('main').addEventListener('mousemove',function(e){
+        count++;
+        if(count%20 ==0){
+            let newInk = ink.cloneNode(true);
+            newInk.style.display ='block';
+            newInk.style.position= 'absolute';
+            newInk.style.transformOrigin = 'center';
+            newInk.style.transform = 'rotate('+Math.random()*360+'deg)';
+            
+            newInk.style.top=`${e.clientY}px`;
+            newInk.style.left=`${e.clientX}px`;
+            let rand = 40 + Math.random()*20;
+            newInk.setAttribute('width', `${rand}px`);
+            newInk.setAttribute('height', `${rand}px`);
+            document.querySelector('main').prepend(newInk);
+    
+        }
+       
+    })
+</script>
 </html>
