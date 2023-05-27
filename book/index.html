@@ -13,7 +13,7 @@
 <body>
     <main>
         <div class="ink">
-            <img src="noun-watercolor-1324804.svg" class="watercolour">
+            <img src="noun-paint-splatter-3910653.svg" class="watercolour">
         </div>
     <section>
         <div class="book">
@@ -31,20 +31,23 @@
     let ink = document.querySelector('.watercolour');
     document.querySelector('main').addEventListener('mousemove',function(e){
         count++;
-        if(count%20 ==0){
+        if(count%2 ==0 && e.buttons){
             let newInk = ink.cloneNode(true);
+            newInk.classList.add('painted');
             newInk.style.display ='block';
             newInk.style.position= 'absolute';
             newInk.style.transformOrigin = 'center';
-            newInk.style.transform = 'rotate('+Math.random()*360+'deg)';
-            
+            newInk.style.transform = 'rotate('-27.5+Math.random()*360+'deg)';
+            newInk.style.transform= 'translate(-50%, -50%)'
             newInk.style.top=`${e.clientY}px`;
             newInk.style.left=`${e.clientX}px`;
-            let rand = 40 + Math.random()*20;
+            let rand = 15 + Math.random()*10;
             newInk.setAttribute('width', `${rand}px`);
             newInk.setAttribute('height', `${rand}px`);
             document.querySelector('main').prepend(newInk);
-    
+            window.setTimeout(function(){
+                newInk.style.opacity=0;
+            }, 5000);
         }
        
     })
